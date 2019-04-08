@@ -5,10 +5,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 import unittest
 import time
-import csv
 import pandas as pd
 
 class loginScraper(unittest.TestCase):
+
     def setUp(self):
         self.driver = webdriver.Chrome()
         self.driver.get('https://leetcode.com/accounts/login/')
