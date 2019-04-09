@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.options import Options
 import unittest
 import time
 import pandas as pd
@@ -10,7 +11,9 @@ import pandas as pd
 class loginScraper(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.Chrome()
+        options = Options()
+        options.add_argument("--window-size=900,800")
+        self.driver = webdriver.Chrome(options = options)
         self.driver.get('https://leetcode.com/accounts/login/')
 
     def test_login(self):
@@ -34,7 +37,7 @@ class loginScraper(unittest.TestCase):
         passFieldElement.send_keys(leetCodePass)
         time.sleep(2)
         loginButtonElement.click()
-        time.sleep(3)
+        time.sleep(5)
 
         top100Path = '//a[@href="/problemset/top-100-liked-questions/"]'
         top100Q = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath(top100Path))
