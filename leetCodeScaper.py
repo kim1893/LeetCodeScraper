@@ -37,7 +37,7 @@ class loginScraper(unittest.TestCase):
         passFieldElement.send_keys(leetCodePass)
         time.sleep(2)
         loginButtonElement.click()
-        time.sleep(5)
+        time.sleep(3)
 
         top100Path = '//a[@href="/problemset/top-100-liked-questions/"]'
         top100Q = WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_xpath(top100Path))
